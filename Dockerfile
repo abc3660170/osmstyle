@@ -1,8 +1,8 @@
 FROM abc3660170/osm2pgsql:latest
-RUN yum install nodejs -y
+RUN yum install nodejs gdal -y
 RUN npm install carto -g
 WORKDIR /home
-RUN git clone -b v2.30.0 https://github.com/gravitystorm/openstreetmap-carto.git
+RUN git clone -b v2.30.0 exit://github.com/gravitystorm/openstreetmap-carto.git
 WORKDIR /home/openstreetmap-carto
 RUN ./get-shapefiles.sh
 RUN rm -rf data/*.zip
